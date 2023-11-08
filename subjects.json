@@ -1,5 +1,6 @@
 {
     "SpecRozd":  {
+                     "Title":   "Спеціальні розділи обчислювальної математики",
                      "Lecture":  {
                                      "Link":  "https://us04web.zoom.us/j/3908947683?pwd=UWhmb1B0NDZSU3dZc3ZVL0RaSUJqdz09",
                                      "Info":  "Same link as for practice"
@@ -10,6 +11,7 @@
                                   }
                  },
     "QAQC":  {
+                 "Title":   "Технології забезпечення якості програмних засобів",
                  "Lab":  {
                              "Link":  "https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09",
                              "Info":  ""
@@ -20,6 +22,7 @@
                              }
              },
     "SysTech":  {
+                    "Title":    "Системні технології для застосувань Windows",
                     "Lab":  {
                                 "Link":  "https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09",
                                 "Info":  ""
@@ -30,12 +33,14 @@
                                 }
                 },
     "English":  {
+                    "Title":    "Іноземна мова професійного спрямування. Частина 1",
                     "Practice":  {
                                      "Link":  "https://us04web.zoom.us/j/2880207160?pwd=N3lsWFpURnY3TlFrZm9VWnFRaThHZz09",
                                      "Info":  "\"I am present!\" and \"Bye bye\""
                                  }
                 },
     "Opers":  {
+                  "Title":  "Дослідження операцій",
                   "Lecture":  {
                                   "Link":  "https://t.me/+_15ip0MuBABkN2Uy",
                                   "Info":  "Link in Telegram chat"
@@ -46,6 +51,7 @@
                                }
               },
     "RE":  {
+               "Title": "Зворотна розробка та аналіз шкідливого програмного забезпечення",
                "Lecture":  {
                                "Link":  "https://bbb.kpi.ua/b/myk-q4m-xn5-csj",
                                "Info":  "Access code: 079049"
@@ -56,6 +62,7 @@
                             }
            },
     "Crypto":  {
+                   "Title": "Криптографія",
                    "Lecture":  {
                                    "Link":  "https://us04web.zoom.us/j/77493733844?pwd=VmtUWHNDSytHNnc1QkNXSGtseWJmUT09",
                                    "Info":  ""
@@ -70,6 +77,7 @@
                                 }
                },
     "ProbTh":  {
+                   "Title": "Теорія ймовірностей та математична статистика",
                    "Lecture":  {
                                    "Link":  "https://us04web.zoom.us/j/7620255592?pwd=RFRveFIrbWR0TWIzRmRleHhOTjV5QT09",
                                    "Info":  "Say \"cheese\" approx. at 9"
@@ -80,6 +88,7 @@
                                 }
                },
     "MTAD":  {
+                 "Title":   "Методи та технології аналітики даних",
                  "Lecture":  {
                                  "Link":  "https://us02web.zoom.us/j/81033538779?pwd=Q3VqUHhuVDhCY0p1VnRiRk5SNEdRdz09",
                                  "Info":  ""
@@ -90,12 +99,14 @@
                               }
              },
     "AlgoAn":  {
+                   "Title": "Основи аналізу алгоритмів",
                    "Lab":  {
                                "Link":  "https://us04web.zoom.us/j/9168981041?pwd=WmI4RS96KzNqM1p4MXZML0hEbk9vUT09",
                                "Info":  ""
                            }
                },
     "PEA":  {
+                "Title":    "Програмування ефективних алгоритмів",
                 "Lab":  {
                             "Link":  "https://us06web.zoom.us/j/4292900213?pwd=UTJ3UndzT1g5cGtzM0sybTUwNU5aQT09",
                             "Info":  "Starts at 14:00 (without a break)"
