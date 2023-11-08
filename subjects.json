@@ -1,0 +1,108 @@
+{
+    "SpecRozd":  {
+                     "Lecture":  {
+                                     "Link":  "https://us04web.zoom.us/j/3908947683?pwd=UWhmb1B0NDZSU3dZc3ZVL0RaSUJqdz09",
+                                     "Info":  "Same link as for practice"
+                                 },
+                     "Practice":  {
+                                      "Link":  "https://us04web.zoom.us/j/3908947683?pwd=UWhmb1B0NDZSU3dZc3ZVL0RaSUJqdz09",
+                                      "Info":  "Same link as for lecture"
+                                  }
+                 },
+    "QAQC":  {
+                 "Lab":  {
+                             "Link":  "https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09",
+                             "Info":  ""
+                         },
+                 "Lecture":  {
+                                 "Link":  "https://bth.zoom.us/j/62165940625",
+                                 "Info":  "Write down lecture"
+                             }
+             },
+    "SysTech":  {
+                    "Lab":  {
+                                "Link":  "https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09",
+                                "Info":  ""
+                            },
+                    "Lecture":  {
+                                    "Link":  "https://web.telegram.org/a/#-1001700380029",
+                                    "Info":  "Check Telegram chat for link"
+                                }
+                },
+    "English":  {
+                    "Practice":  {
+                                     "Link":  "https://us04web.zoom.us/j/2880207160?pwd=N3lsWFpURnY3TlFrZm9VWnFRaThHZz09",
+                                     "Info":  "\"I am present!\" and \"Bye bye\""
+                                 }
+                },
+    "Opers":  {
+                  "Lecture":  {
+                                  "Link":  "https://t.me/+_15ip0MuBABkN2Uy",
+                                  "Info":  "Link in Telegram chat"
+                              },
+                  "Practice":  {
+                                   "Link":  "https://t.me/+_15ip0MuBABkN2Uy",
+                                   "Info":  "Link in Telegram chat"
+                               }
+              },
+    "RE":  {
+               "Lecture":  {
+                               "Link":  "https://bbb.kpi.ua/b/myk-q4m-xn5-csj",
+                               "Info":  "Access code: 079049"
+                           },
+               "Practice":  {
+                                "Link":  "https://bbb.kpi.ua/b/uwq-ofo-gce-lhw",
+                                "Info":  "Access code: 028474"
+                            }
+           },
+    "Crypto":  {
+                   "Lecture":  {
+                                   "Link":  "https://us04web.zoom.us/j/77493733844?pwd=VmtUWHNDSytHNnc1QkNXSGtseWJmUT09",
+                                   "Info":  ""
+                               },
+                   "Lab":  {
+                               "Link":  "https://us05web.zoom.us/j/9442768212?pwd=nQWbqnK7bDPN0fATbZl53IBkZSIOcl.1",
+                               "Info":  "Pay attention to queue"
+                           },
+                   "Practice":  {
+                                    "Link":  "https://us05web.zoom.us/j/5757832035?pwd=aHlCdzVBcllqVzcwdnJTdG1BMTFNZz09",
+                                    "Info":  "Ask for link"
+                                }
+               },
+    "ProbTh":  {
+                   "Lecture":  {
+                                   "Link":  "https://us04web.zoom.us/j/7620255592?pwd=RFRveFIrbWR0TWIzRmRleHhOTjV5QT09",
+                                   "Info":  "Say \"cheese\" approx. at 9"
+                               },
+                   "Practice":  {
+                                    "Link":  "https://us04web.zoom.us/j/7021457189?pwd=dytzTUFLSEluU1RIYkdtK3orSlkyUT09",
+                                    "Info":  "Prepare for shitshow :^)"
+                                }
+               },
+    "MTAD":  {
+                 "Lecture":  {
+                                 "Link":  "https://us02web.zoom.us/j/81033538779?pwd=Q3VqUHhuVDhCY0p1VnRiRk5SNEdRdz09",
+                                 "Info":  ""
+                             },
+                 "Practice":  {
+                                  "Link":  "https://meet.google.com/ffa-aetm-ogt",
+                                  "Info":  ""
+                              }
+             },
+    "AlgoAn":  {
+                   "Lab":  {
+                               "Link":  "https://us04web.zoom.us/j/9168981041?pwd=WmI4RS96KzNqM1p4MXZML0hEbk9vUT09",
+                               "Info":  ""
+                           }
+               },
+    "PEA":  {
+                "Lab":  {
+                            "Link":  "https://us06web.zoom.us/j/4292900213?pwd=UTJ3UndzT1g5cGtzM0sybTUwNU5aQT09",
+                            "Info":  "Starts at 14:00 (without a break)"
+                        },
+                "Lecture":  {
+                                "Link":  "https://us06web.zoom.us/j/4292900213?pwd=UTJ3UndzT1g5cGtzM0sybTUwNU5aQT09",
+                                "Info":  "Starts at 14:00 (without a break)"
+                            }
+            }
+}
