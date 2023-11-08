@@ -47,7 +47,6 @@ Join-Meeting -Quiet
 ## Plans
 
 * Add Linux and MacOS support.
-* Move Semester5 hashtable to a separate file.
 
 ## License
 
