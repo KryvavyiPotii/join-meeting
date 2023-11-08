@@ -1,7 +1,5 @@
-﻿function Join-Meeting
+function Join-Meeting
 {
-    [CmdletBinding()]
-
     param
     (
         [ValidateSet(
@@ -14,20 +12,20 @@
         [switch] $Quiet
     )
 
+    # Join meeting.
     function Establish-Connection
     {
         Write-Host "[INFO] Establishing connection to $($Subject) $($Type)..."
 
-        # Join meeting.
         try 
         {
-            Start-Process "$($Semester5.$Subject.$Type.Link)"
+            Start-Process "$($hash.$Subject.$Type.Link)"
             "[INFO] Connected to $($Subject) $($Type)"
 
             # Show extra info if there is.
-            if ($Semester5.$Subject.$Type.Info)
+            if ($hash.$Subject.$Type.Info)
             {
-                Write-Host "[INFO] $($Semester5.$Subject.$Type.Info)"
+                Write-Host "[INFO] $($hash.$Subject.$Type.Info)"
             }
         }
         catch
@@ -38,124 +36,24 @@
 
     # Link to group's schedule.
     $roz = 'http://epi.kpi.ua/Schedules/ViewSchedule.aspx?g=3a2a5666-0a50-4695-8602-8637ef7b6b62'
-    # Hashtable of current term's subject with links and extra info.
-    $Semester5 = @{
-        'English' = @{
-            'Practice' = @{
-                'Link' = 'https://us04web.zoom.us/j/2880207160?pwd=N3lsWFpURnY3TlFrZm9VWnFRaThHZz09'
-                'Info' = '"I am present!" and "Bye bye"'
-            }
-        }
+    # Path to a .json file with subject short titles, links and extra info.
+    $path = ''
 
-        'RE' = @{
-            'Lecture' = @{
-                'Link' = 'https://bbb.kpi.ua/b/myk-q4m-xn5-csj'
-                'Info' = 'Access code: 079049'
-            }
-            'Practice' = @{
-                'Link' = 'https://bbb.kpi.ua/b/uwq-ofo-gce-lhw'
-                'Info' = 'Access code: 028474'
-            }
+    # Create hashtable from a file.
+    try
+    {
+        $jsonObj = Get-Content -Path $path -Raw | ConvertFrom-Json
+        $hash = @{}
+        foreach ($property in $jsonObj.PSObject.Properties)
+        {
+            $hash[$property.Name] = $property.Value
         }
-
-        'Crypto' = @{
-            'Lecture' = @{
-                'Link' = 'https://us04web.zoom.us/j/77493733844?pwd=VmtUWHNDSytHNnc1QkNXSGtseWJmUT09'
-                'Info' = ''
-            }
-            'Practice' = @{
-                'Link' = 'https://us05web.zoom.us/j/5757832035?pwd=aHlCdzVBcllqVzcwdnJTdG1BMTFNZz09'
-                'Info' = 'Ask for link'
-            }
-            'Lab' = @{
-                'Link' = 'https://us05web.zoom.us/j/9442768212?pwd=nQWbqnK7bDPN0fATbZl53IBkZSIOcl.1'
-                'Info' = 'Pay attention to queue'
-            }
-        }
-
-        'ProbTh' = @{
-            'Lecture' = @{
-                'Link' = 'https://us04web.zoom.us/j/7620255592?pwd=RFRveFIrbWR0TWIzRmRleHhOTjV5QT09'
-                'Info' = 'Say "cheese" approx. at 9'
-            }
-            'Practice' = @{
-                'Link' = 'https://us04web.zoom.us/j/7021457189?pwd=dytzTUFLSEluU1RIYkdtK3orSlkyUT09'
-                'Info' = 'Prepare for shitshow :^)'
-            }
-        }
-
-        'QAQC' = @{
-            'Lecture' = @{
-                'Link' = 'https://bth.zoom.us/j/62165940625'
-                'Info' = 'Write down lecture'
-            }
-            'Lab' = @{
-                'Link' = 'https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09'
-                'Info' = ''
-            }
-        }
-
-        'PEA' = @{
-            'Lecture' = @{
-                'Link' = 'https://us06web.zoom.us/j/4292900213?pwd=UTJ3UndzT1g5cGtzM0sybTUwNU5aQT09'
-                'Info' = 'Starts at 14:00 (without a break)'
-            }
-            'Lab' = @{
-                'Link' = 'https://us06web.zoom.us/j/4292900213?pwd=UTJ3UndzT1g5cGtzM0sybTUwNU5aQT09'
-                'Info' = 'Starts at 14:00 (without a break)'
-            }
-        }
-
-        'SysTech' = @{
-            'Lecture' = @{
-                'Link' = 'https://web.telegram.org/a/#-1001700380029'
-                'Info' = 'Check Telegram chat for link'
-            }
-            'Lab' = @{
-                'Link' = 'https://us04web.zoom.us/j/5095167397?pwd=bWc4QWdoNGM2bGxWRWp4bWs5eXFsdz09'
-                'Info' = ''
-            }
-        }
-
-        'MTAD' = @{
-            'Lecture' = @{
-                'Link' = 'https://us02web.zoom.us/j/81033538779?pwd=Q3VqUHhuVDhCY0p1VnRiRk5SNEdRdz09'
-                'Info' = ''
-            }
-            'Practice' = @{
-                'Link' = 'https://meet.google.com/ffa-aetm-ogt'
-                'Info' = ''
-            }
-        }
-
-        'AlgoAn' = @{
-            'Lab' = @{
-                'Link' = 'https://us04web.zoom.us/j/9168981041?pwd=WmI4RS96KzNqM1p4MXZML0hEbk9vUT09'
-                'Info' = ''
-            }
-        }
-
-        'SpecRozd' = @{
-            'Lecture' = @{
-                'Link' = 'https://us04web.zoom.us/j/3908947683?pwd=UWhmb1B0NDZSU3dZc3ZVL0RaSUJqdz09'
-                'Info' = 'Same link as for practice'
-            }
-            'Practice' = @{
-                'Link' = 'https://us04web.zoom.us/j/3908947683?pwd=UWhmb1B0NDZSU3dZc3ZVL0RaSUJqdz09'
-                'Info' = 'Same link as for lecture'
-            }
-        }
-       
-        'Opers' = @{
-            'Lecture' = @{
-                'Link' = 'https://t.me/+_15ip0MuBABkN2Uy'
-                'Info' = 'Link in Telegram chat'
-            }
-            'Practice' = @{
-                'Link' = 'https://t.me/+_15ip0MuBABkN2Uy'
-                'Info' = 'Link in Telegram chat'
-            }
-        }
+    }
+    catch
+    {
+        Write-Warning 'Failed to create a hashtable'
+        Write-Warning 'Check if path to a .json file is correct'
+        return
     }
 
     # Display current time.
@@ -190,40 +88,35 @@
     # Define current/closest class.
     if (-not $Subject -And -not ($data -eq $null))
     {
-        $ClassTitles = @{
-            'Іноземна мова професійного спрямування. Частина 1' = 'English'
-            'Зворотна розробка та аналіз шкідливого програмного забезпечення' = 'RE'
-            'Криптографія' = 'Crypto'
-            'Теорія ймовірностей та математична статистика' = 'ProbTh'
-            'Технології забезпечення якості програмних засобів' = 'QAQC'
-            'Програмування ефективних алгоритмів' = 'PEA'
-            'Системні технології для застосувань Windows' = 'SysTech'
-            'Методи та технології аналітики даних' = 'MTAD'
-            'Основи аналізу алгоритмів' = 'AlgoAn'
-            'Спеціальні розділи обчислювальної математики' = 'SpecRozd'
-            'Дослідження операцій' = 'Opers'
+        $ClassTypes = @{
+            'Лек' = 'Lecture' 
+            'Лаб' = 'Lab'
+            'Прак' = 'Practice'
         }
-        if ($ClassTitles.ContainsKey($class))
+
+        # Find Subject with title Class.
+        foreach ($key in $hash.Keys)
         {
-            # Define class title.
-            $Subject = $ClassTitles[$class]
-            # Define class type.
-            $ClassTypes = @{
-                'Лек' = 'Lecture' 
-                'Лаб' = 'Lab'
-                'Прак' = 'Practice'
-            }
-            $curr = $data.Substring($ind, 500) -replace '\<[^\>]*\>'
-            foreach ($key in $ClassTypes.Keys)
+            if ($hash.$key.Title -eq $class)
             {
-                if ($curr.Contains($key))
+                # Define class title.
+                $Subject = "$($key)"
+
+                # Define class type.
+                $curr = $data.Substring($ind, 500) -replace '\<[^\>]*\>'
+                foreach ($key in $ClassTypes.Keys)
                 {
-                    $Type = $ClassTypes[$key]
-                    break
-                }
-            }  
+                    if ($curr.Contains($key))
+                    {
+                        $Type = $ClassTypes[$key]
+                        break
+                    }
+                }  
+            }
         }
-        else
+
+        # Case hashtable doesn't have Subject.
+        if (-not $Subject)
         {
             Write-Warning "Subject `"$($class)`" is not supported"
         }
@@ -232,23 +125,38 @@
     # Case Type not specified.
     if (-not $Type)
     {
-        # Choose any type of a specified subject
-        $Type = $Semester5.$Subject.Keys | Get-Random
-        Write-Host "[INFO] Type was not specified: connecting to $($Subject) $($Type)"
+        # Choose any type of a specified subject.
+        foreach ($key in $hash.$Subject.Keys)
+        {
+            if (-not ($key -eq 'Title'))
+            {
+                $Type = $hash.$Subject.$key
+                break
+            }
+        }
+
+        # Check if Subject is not missing type in the hashtable.
+        if ($Type)
+        {
+            Write-Host "[INFO] Type was not specified: connecting to $($Subject) $($Type)"
+        }
+        else
+        {
+            Write-Warning "Subject $($Subject) does not have a single type"
+        }
     }
+
     # Connect to a meeting.
     if (-not $Quiet)
     {
         $ans = Read-Host "[CHOICE] Do you want to connect $($Subject) ($($Type))? [y or n]"
         if ($ans -eq 'y')
         {
-            # Join meeting.
             Establish-Connection
         }
     }
     else
     {
-        # Join meeting.
         Establish-Connection
     }
 
