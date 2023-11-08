@@ -1,4 +1,4 @@
-# join-meeting
+# Join-Meeting
 Join-Meeting is a Powershell module for fast and comfortable connection to KPI classes.
 
 ## Installation
