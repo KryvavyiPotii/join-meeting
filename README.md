@@ -5,6 +5,7 @@ Join-Meeting is a Powershell module for fast and comfortable connection to KPI c
 
 Put the module file into directory C:\Users\<username>\Documents\WindowsPowerShell\Modules\Join-Meeting
 If directory does not exist, create it manually.
+Put subjects.json wherever you want and specify it's path in variable $SubjectsPath in module file.
 
 ```powershell
 Import-Module Join-Meeting
@@ -21,7 +22,7 @@ Import-Module Join-Meeting
 Import-Module Join-Meeting -Force
 ```
 
-Also you can manually add new subject full titles, subject short titles, links and extra info into hashtables.
+Also you can manually add new subject full titles, subject short titles, links and extra info into subjects.json.
 
 ## Usage
 
