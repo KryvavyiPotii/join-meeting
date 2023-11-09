@@ -56,7 +56,7 @@ Join-Meeting -Quiet
 
 ## Comments
 
-* You may get extra info and examples of usage by [Get-Help](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.3)
+* You may get extra info and examples of usage with [Get-Help](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.3)
 * At the moment signing this module is not an option. So I would advise changing execution policy (see [Get-ExecutionPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-executionpolicy?view=powershell-7.3) and [Set-ExecutionPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.3)) or copying this module rather than downloading.
 
 ## Plans
