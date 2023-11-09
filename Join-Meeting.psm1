@@ -149,7 +149,7 @@ function Join-Meeting
     # Connect to a meeting.
     if (-not $Quiet)
     {
-        $ans = Read-Host "[CHOICE] Do you want to connect $($Subject) ($($Type))? [y or n]"
+        $ans = Read-Host "[CHOICE] Do you want to connect to $($Subject) ($($Type))? [y or n]"
         if ($ans -eq 'y')
         {
             Establish-Connection
