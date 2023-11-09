@@ -34,6 +34,8 @@ In case you want to modify `subjects.json` you should keep in mind the format:
   * "Type" - hashtable of possible class types ("Lecture", "Lab" and "Practice").
     * "Link" - class link for a desired type.
     * "Info" - extra comments for user that aren't used in code.
+It is not recommended to change any key names except for those of short and full subject titles.
+After adding/modifying/removing short titles edit `ValidateSet` of `Subject` parameter accordingly.
 
 ## Usage
 
