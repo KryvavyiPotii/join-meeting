@@ -1,4 +1,5 @@
 # Join-Meeting
+
 Join-Meeting is a Powershell module for fast and comfortable connection to KPI classes.
 
 ## Installation
@@ -13,16 +14,26 @@ Import-Module Join-Meeting
 
 ## Update
 
-In order to update module you should change the file and either remove it and import again or import it with `-Force` flag
+In order to update module you should change the module file. 
+After that you need to remove it and import again.
 
 ```powershell
 Remove-Module Join-Meeting
 Import-Module Join-Meeting
-# OR
+```
+
+A faster option is to use `Import-Module` command with `-Force` flag.
+
+```powershell
 Import-Module Join-Meeting -Force
 ```
 
-Also you can manually add new subject full titles, subject short titles, links and extra info into `subjects.json`.
+In case you want to modify `subjects.json` you should keep in mind the format:
+* Outer keys are short subject titles.
+  * "Title" - full subject title that is present in epi.kpi.ua.
+  * "Type" - hashtable of possible class types ("Lecture", "Lab" and "Practice").
+    * "Link" - class link for a desired type.
+    * "Info" - extra comments for user that aren't used in code.
 
 ## Usage
 
