@@ -296,7 +296,7 @@ function Get-ScheduleData
         $title = $Matches.title
 
         # Find current/closest class type.
-        ($data -match "t_pair`">.{200,500}(?<type>.{3,4} on-line)") | Out-Null
+        ($data -match "t_pair`">.{200,500} (?<type>.{3,4} on-line)") | Out-Null
         $type = $Matches.type
 
         $ScheduleData = @{
