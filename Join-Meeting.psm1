@@ -292,7 +292,7 @@ function Get-ScheduleData
         $group = $Matches.group
 
         # Find current/closest class title.
-        ($data -match "t_pair`">.{50,200}title=`"(?<title>.{5,150})`"") | Out-Null
+        ($data -match "t_pair`">.{50,200}title=`"(?<title>.{1,150})`">") | Out-Null
         $title = $Matches.title
 
         # Find current/closest class type.
