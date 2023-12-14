@@ -17,23 +17,23 @@ function Join-Meeting
     )
 
     # Display current time.
-    Write-Host "[INFO] Time: $(Get-Date -UFormat "%R")"
+    Write-Host "[OUT]`tTime:`t$(Get-Date -UFormat "%R")"
 
     # Display schedule data.
     $roz = 'http://epi.kpi.ua/Schedules/ViewSchedule.aspx?g=3a2a5666-0a50-4695-8602-8637ef7b6b62'
     $schedule = Get-ScheduleData -Link $roz
     if ($schedule -ne $null)
     {
-        Write-Host "[INFO] Group: `"$($schedule.Group)`""
-        Write-Host "[INFO] Current/closest class: `"$($schedule.Title) ($($schedule.Type))`""
+        Write-Host "[OUT]`tGroup:`t`"$($schedule.Group)`""
+        Write-Host "[OUT]`tCurrent/closest class: `"$($schedule.Title) ($($schedule.Type))`""
     }
     
     # Path to a .json file with subject short titles, links and extra info.
-    $path = '.\subjects.json'
+    $path = 'C:\Users\zh4rgone\Documents\WindowsPowerShell\Modules\Join-Meeting\subjects.json'
     $Subjects = ConvertTo-Hashtable -Path $path
     if ($Subjects -eq $null)
     {
-        Write-Host '[INFO] Finishing work...'
+        Write-Host "[OUT]`tFinishing work..."
         return
     }
 
@@ -70,7 +70,7 @@ function Join-Meeting
         else
         {
             Write-Warning 'Not enough data for joining a meeting'
-            Write-Host '[INFO] Finishing work...'
+            Write-Host "[OUT]`tFinishing work..."
             return
         }
     }
@@ -96,7 +96,7 @@ function Join-Meeting
         # Check if Subject is not missing type in the hashtable.
         if ($Type)
         {
-            Write-Host "[INFO] Type was not specified: connecting to `"$($uatitle) ($($uatype))`""
+            Write-Host "[OUT]`tType was not specified: connecting to `"$($uatitle) ($($uatype))`""
         }
         else
         {
@@ -126,16 +126,16 @@ function Join-Meeting
     }
     if (-not $Quiet)
     {
-        $ans = Read-Host "[CHOICE] Do you want to connect to `"$($uatitle) ($($uatype))`"? [y or n]"
-        if ($ans -ne 'y')
+        $ans = Read-Host "[IN]`tConnect to `"$($uatitle) ($($uatype))`"? [yn]"
+        if ($and -ne $null -And $ans -ne 'y')
         {
-            Write-Host '[INFO] Finishing work...'
+            Write-Host "[OUT]`tFinishing work..."
             return
         }
     }
     Open-Link @openLinkSplat
 
-    Write-Host '[INFO] Finishing work...'
+    Write-Host "[OUT]`tFinishing work..."
 
     <#
         .SYNOPSIS
@@ -161,43 +161,43 @@ function Join-Meeting
   
         .EXAMPLE
         PS> Join-Meeting -Subject RE -Type Lecture
-        [INFO] Time: 22:11
-        [INFO] Group: "ФБ-13"
-        [INFO] Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
-        [CHOICE] Do you want to connect to "Зворотна розробка та аналіз шкідливого програмного забезпечення (Лек on-line)"? [y or n]: y
-        [INFO] Connection established.
-        [INFO] Access code: 079049
-        [INFO] Finishing work...
+        [OUT]   Time:   22:11
+        [OUT]   Group:  "ФБ-13"
+        [OUT]   Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
+        [IN]    Connect to "Зворотна розробка та аналіз шкідливого програмного забезпечення (Лек on-line)"? [y or n]: y
+        [OUT]   Connection established.
+        [OUT]   Access code: 079049
+        [OUT]   Finishing work...
 
         .EXAMPLE
         PS> Join-Meeting -Subject English
-        [INFO] Time: 22:05
-        [INFO] Group: "ФБ-13"
-        [INFO] Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
-        [INFO] Type was not specified: connecting to "Іноземна мова професійного спрямування. Частина 1 (Прак on-line)"
-        [CHOICE] Do you want to connect to "Іноземна мова професійного спрямування. Частина 1 (Прак on-line)"? [y or n]: y
-        [INFO] Connection established.
-        [INFO] "I am present!" and "Bye bye"
-        [INFO] Finishing work...
+        [OUT]   Time:   22:05
+        [OUT]   Group:  "ФБ-13"
+        [OUT]   Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
+        [OUT]   Type was not specified: connecting to "Іноземна мова професійного спрямування. Частина 1 (Прак on-line)"
+        [IN]    Connect to "Іноземна мова професійного спрямування. Частина 1 (Прак on-line)"? [y or n]: y
+        [OUT]   Connection established.
+        [OUT]   "I am present!" and "Bye bye"
+        [OUT]   Finishing work...
 
         .EXAMPLE
         PS> Join-Meeting
-        [INFO] Time: 17:02
-        [INFO] Group: "ФБ-13"
-        [INFO] Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
-        [CHOICE] Do you want to connect to "Технології забезпечення якості програмних засобів (Лаб on-line)"? [y or n]: y
-        [INFO] Establishing connection to "Технології забезпечення якості програмних засобів (Лаб on-line)"...
-        [INFO] Connection established.
-        [INFO] Finishing work...
+        [OUT]   Time:   17:02
+        [OUT]   Group:  "ФБ-13"
+        [OUT]   Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
+        [IN]    Connect to "Технології забезпечення якості програмних засобів (Лаб on-line)"? [y or n]: y
+        [OUT]   Establishing connection to "Технології забезпечення якості програмних засобів (Лаб on-line)"...
+        [OUT]   Connection established.
+        [OUT]   Finishing work...
 
         .EXAMPLE
         PS> Join-Meeting -Quiet
-        [INFO] Time: 17:04
-        [INFO] Group: "ФБ-13"
-        [INFO] Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
-        [INFO] Establishing connection to "Технології забезпечення якості програмних засобів (Лаб on-line)"...
-        [INFO] Connection established.
-        [INFO] Finishing work...
+        [OUT]   Time:   17:04
+        [OUT]   Group:  "ФБ-13"
+        [OUT]   Current/closest class: "Технології забезпечення якості програмних засобів (Лаб on-line)"
+        [OUT]   Establishing connection to "Технології забезпечення якості програмних засобів (Лаб on-line)"...
+        [OUT]   Connection established.
+        [OUT]   Finishing work...
     #>
 }
 
@@ -356,12 +356,12 @@ function Open-Link
     try 
     {
         Start-Process $Link
-        Write-Host "[INFO] Connection established."
+        Write-Host "[OUT]`tConnection established."
 
         # Show extra info if there is any.
         if ($Info)
         {
-            Write-Host "[INFO] $Info"
+            Write-Host "[OUT]`t$Info"
         }
     }
     catch
@@ -390,11 +390,11 @@ function Open-Link
   
         .EXAMPLE
         PS> Open-Link -Link https://us04web.zoom.us/j/77493733844?pwd=VmtUWHNDSytHNnc1QkNXSGtseWJmUT09
-        [INFO] Connection established.
+        [OUT]   Connection established.
 
         .EXAMPLE
         PS> Open-Link -Link https://us05web.zoom.us/j/9442768212?pwd=nQWbqnK7bDPN0fATbZl53IBkZSIOcl.1 -Info "Pull request!"
-        [INFO] Connection established.
-        [INFO] Pull request!
+        [OUT]   Connection established.
+        [OUT]   Pull request!
     #>
 }
