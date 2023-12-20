@@ -127,7 +127,7 @@ function Join-Meeting
     if (-not $Quiet)
     {
         $ans = Read-Host "[IN]`tConnect to `"$($uatitle) ($($uatype))`"? [yn]"
-        if ($and -ne $null -And $ans -ne 'y')
+        if ($ans -ne $null -And $ans -ne 'y')
         {
             Write-Host "[OUT]`tFinishing work..."
             return
@@ -281,10 +281,12 @@ function Get-ScheduleData
         [string] $Link
     )
 
+    $timeout = 5
+
     # Show current/closest class.
     try
     {
-        $html = Invoke-WebRequest $Link -UseBasicParsing
+        $html = Invoke-WebRequest $Link -UseBasicParsing -TimeoutSec $timeout
         $data = $html.Content
 
         # Define group ID.
