@@ -127,7 +127,7 @@ function Join-Meeting
     if (-not $Quiet)
     {
         $ans = Read-Host "[IN]`tConnect to `"$($uatitle) ($($uatype))`"? [yn]"
-        if ($ans -ne $null -And $ans -ne 'y')
+        if ($ans -ne "" -And $ans -ne 'y')
         {
             Write-Host "[OUT]`tFinishing work..."
             return
